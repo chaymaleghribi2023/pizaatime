@@ -4,8 +4,8 @@ import panierrepas from '../../image/panierrepas.png'
 import { useState } from 'react';
 import '@/app/components/Modal/Modal.css';
 import { Button } from '@nextui-org/react';
-const App = () => {
-  const [showModal, setShowModal] = useState(false);
+const App = ({showModal,setShowModal}:any) => {
+ 
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -18,9 +18,7 @@ const App = () => {
 
   return (
     <div className='modal1'>
-      <button onClick={toggleModal} className='button type1' type="button">
-      <span className="btn-txt">Commander</span>
-      </button>
+     
       {showModal && (
         <div className="modal">
           <div className="modal-content">

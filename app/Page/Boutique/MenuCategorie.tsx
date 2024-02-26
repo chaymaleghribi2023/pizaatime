@@ -1,20 +1,33 @@
 import { card } from '@/app/constants/constants'
 import { Card } from '@nextui-org/react'
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from'@/app/components/Modal/Modal';
 
 function MenuCategorie() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Card>
 
    
     <div className="d-flex justify-content-between">
     <div className='mt-2'>
+    <a   onClick={() => setShowModal(true)}>
     <ul style={{backgroundColor  :"#FFFFFF"}}>
       {Object.entries(card.categories) .slice(0, 10).map(([key, value] :any) => (
         <li key={key}>{value.title}</li>
       ))}
     </ul>
 
+    </a>
+    {showModal ? (
+              <>
+                <div
+                  className="modal-background"
+                  onClick={() => setShowModal(false)}
+                />
+                <Modal setShowModal={setShowModal} showModal={showModal} />
+              </>
+            ) : null}
     </div>
     <div className='d-flex align-items-center'>
 
@@ -25,6 +38,7 @@ function MenuCategorie() {
  </select> 
   </div>
   </div>
+ 
   </Card>
   )
 }
