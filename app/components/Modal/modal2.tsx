@@ -118,34 +118,31 @@ const Modal2 = ({ showModal, setShowModal }: any) => {
 
   return (
     <div>
-      <Modal isOpen={showModal} toggle={toggleModal} style={{ width: '500px', height: '100px' }}>
-        <ModalHeader toggle={toggleModal}>Informations utiles</ModalHeader>
-        <ModalBody>
-          <div className="row justify-content-md-center">
-            <ul className="nav nav-tabs pb-0 border-0" id="myTab" role="tablist">
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'general' ? 'active' : ''}`} id="first-tab" onClick={() => handleTabChange('general')}>
-                  Générales
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'horaires' ? 'active' : ''}`} id="second-tab" onClick={() => handleTabChange('horaires')}>
-                  Horaires
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'livraison' ? 'active' : ''}`} id="third-tab" onClick={() => handleTabChange('livraison')}>
-                  Villes de livraison
-                </a>
-              </li>
-            </ul>
-            <div className="card-body pt-1">
-              {renderTabContent()}
-            </div>
-          </div>
-        </ModalBody>
-       
-      </Modal>
+        <Modal isOpen={showModal} toggle={toggleModal}>
+      <ModalHeader toggle={toggleModal}>Informations utiles</ModalHeader>
+      <ModalBody>
+        <ul className="nav nav-tabs" role="tablist">
+          <li className="nav-item">
+            <button className={`nav-link ${activeTab === 'general' ? 'active' : ''}`} onClick={() => handleTabChange('general')}>
+              Générales
+            </button>
+          </li>
+          <li className="nav-item">
+            <button className={`nav-link ${activeTab === 'horaires' ? 'active' : ''}`} onClick={() => handleTabChange('horaires')}>
+              Horaires
+            </button>
+          </li>
+          <li className="nav-item">
+            <button className={`nav-link ${activeTab === 'livraison' ? 'active' : ''}`} onClick={() => handleTabChange('livraison')}>
+              Livraison
+            </button>
+          </li>
+        </ul>
+        <div className="tab-content">
+          {renderTabContent()}
+        </div>
+      </ModalBody>
+    </Modal>
     </div>
   );
 };
