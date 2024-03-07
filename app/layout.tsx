@@ -4,7 +4,7 @@ import "./globals.css";
 import Header  from "./components/Header";
 import Footer from "./components/footer/footer";
 
-const inter = Inter({ subsets: ["latin"],weight:["400","700"]});
+const inter = Inter({ subsets:["latin"],weight:["400","700"]});
 
 export const metadata: Metadata = {
   title: "Bienvenue a notre site",
@@ -16,8 +16,7 @@ export default function RootLayout({children}:any) {
     <html lang="en">
       <body className={inter.className}>
         <Header/>
-      
-        <main className="Container">{children}</main>
+      <main className="Container">{children}</main>
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css"/>
       <link href="./output.css" rel="stylesheet"/>
 
@@ -28,8 +27,7 @@ export default function RootLayout({children}:any) {
       <br />
       <br />
       <br />
-
-      <Footer />
+     <Footer />
       </body>
     </html>
   );

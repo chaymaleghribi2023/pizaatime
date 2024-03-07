@@ -1,12 +1,14 @@
 import Icons from '@/app/components/Icons/Icons';
 import ImgHeader from '@/app/components/ImgHeader'
+import Modal2 from '@/app/components/Modal/modal2';
 import store from '@/app/components/store';
 import { card } from '@/app/constants/constants'
 import { color } from 'framer-motion';
-import React from 'react'
+import React, { useState } from 'react'
 import { useSnapshot } from 'valtio/react';
 
 function Header() {
+  const [showModal, setShowModal] = useState(false);
     
     const {id}= useSnapshot(store)  
   
@@ -37,7 +39,16 @@ function Header() {
             {" "}
             {companyToShow.Address},{companyToShow.PostalCode} {companyToShow.town}   
           </p>
-          <a href=''>Informations utiles</a>
+          <a   onClick={() => setShowModal(true)}>Informations utiles</a>
+          {showModal ? (
+              <>
+                <div
+                  className="modal-background"
+                  onClick={() => setShowModal(false)}
+                />
+                <Modal2 setShowModal={setShowModal} showModal={showModal} />
+              </>
+            ) : null}
             <div>
               
             </div>

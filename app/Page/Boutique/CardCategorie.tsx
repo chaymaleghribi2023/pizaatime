@@ -14,10 +14,12 @@ function CardCategorie() {
 <div className="row">
     {categorieShop.map((value:any,key:number) => (
      <div className="col-sm my-3">
+        <h5 className="card-title" >{value.title}</h5>
      <div className="card" style={{ width: '18rem' }}>
+    
      <img className="card-img-top" src={value.imageUrl.Default.urlDefault ? value.imageUrl.Default.urlDefault :"https://www.commande-pizzatime.fr/CESARWEB_WEB/repimage/83bbc4350c114000b0e2d6c4ff204215/3/web/Famille122.webp" } alt="Card image cap" />
      <div className="card-body">
-      <h5 className="card-title">{value.title}</h5>
+     
   
       <button
               onClick={() => setShowModal(true)}
