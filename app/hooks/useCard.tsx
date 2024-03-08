@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
-import { card } from "../utils/products";
+import { card } from "../constants/constants";
 import toast from "react-hot-toast";
 
 type  CartContextType={

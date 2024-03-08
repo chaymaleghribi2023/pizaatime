@@ -30,44 +30,7 @@ const Map = () => {
     });
 
         const postalCodes: string[] = Object.values(card.shoplist).map((item:any) => item.PostalCode);
-        console.log(postalCodes);
-        
-
-
-    //     const getLatLongFromAddress = async (address: any) => {
-    //         try {
-    //             const response = await axios.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${address}&fields=geometry&key=AIzaSyBqmxLZ9JxVPhiQ2sgGtneS12Xe4XnUapM`);
-    //             const { results } = response.data;
-            
-    //             if (results.length > 0 && results[0].geometry && results[0].geometry.location) {
-    //                 const { lat, lng } = results[0].geometry.location;
-    //                 return { lat, lng };
-    //             } else {
-    //                 throw new Error('No results found for the given address');
-    //             }
-    //             } catch (error: any) {
-    //             console.error(`Error fetching geocode data: ${error.message}`);
-    //             console.error('Full response:', error.response || error.request || error.message);
-    //             }
-    //         };
-
-    //         const address = '80000'
-    //         const location = async (address: string) => {
-    //             try {
-    //                 const coordinates = await getLatLongFromAddress(address);
-                
-    //                 if (coordinates) {
-    //                     const { lat, lng } = coordinates;
-    //                     console.log(`Latitude: ${lat}, Longitude: ${lng}`);
-    //                 } else {
-    //                     console.error('No coordinates available for the given address');
-    //                 }
-    //                 } catch (error: any) {
-    //                 console.error(error.message);
-    //                 }
-    //             };
-
-    // location(address)
+        console.log(postalCodes);0
     const pixelOffset: CustomSize = {
         width: 0,
         height: 0,
@@ -77,6 +40,7 @@ const Map = () => {
       };
 
     const [selectedPlace,setSelectedPlace]=useState<place>()
+    console.log({selectedPlace})
     const router = useRouter();
  
  
@@ -124,19 +88,13 @@ const Map = () => {
                     onCloseClick={()=>setSelectedPlace(undefined)}
                     >
                         <div>
-                        <div className="aspect-square overflow-hidden relative w-full rounded-md h-[200px]">
+                        <div className="aspect-square overflow-hidden relative w-full rounded-md h-[200px]" style={{ height:'20px'}}>
                                 <Image
                                 fill
                                 src={selectedPlace.image}
                                 alt=""
                                 onClick={() => {
-                                    let id = "";
-                                        for (let item of Object.keys(card.shoplist)) {
-                                            if (JSON.stringify((card.shoplist as any)[item]) === JSON.stringify(selectedPlace)) {
-                                            id = item;
-                                            }
-                                        }
-                                    router.push(`/product/${id}`);
+                                    router.push(`/components/Boutiques`);
                                 }}                            />
                             </div>
                         
