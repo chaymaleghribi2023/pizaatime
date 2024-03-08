@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header  from "./components/Header";
 import Footer from "./components/footer/footer";
+import { UserLocationProvider } from "./hooks/useLocation";
 
 const inter = Inter({ subsets:["latin"],weight:["400","700"]});
 
@@ -15,6 +16,7 @@ export default function RootLayout({children}:any) {
   return (
     <html lang="en">
       <body className={inter.className}>
+      <UserLocationProvider>
         <Header/>
       <main className="Container">{children}</main>
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css"/>
@@ -28,6 +30,7 @@ export default function RootLayout({children}:any) {
       <br />
       <br />
      <Footer />
+     </UserLocationProvider>
       </body>
     </html>
   );
